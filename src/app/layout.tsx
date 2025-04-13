@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ClientBody from "./ClientBody";
+import Script from "next/script";
 
 // Fonts
 const geistSans = Geist({
@@ -32,11 +33,14 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css"
         />
-        <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
       </head>
-
-      {/* Main content */}
       <body>
+        {/* Dialogflow Messenger */}
+        <Script 
+        src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js">
+        strategy ="afterInteractive"
+        </Script>
+        
         <ClientBody>{children}</ClientBody>
       </body>
     </html>
