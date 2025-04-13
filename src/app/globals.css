@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+df-messenger {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 350px; /* Set a fixed width */
+  height: 500px; /* Set a fixed height */
+  max-width: 100%; /* Ensures responsiveness */
+  z-index: 9999; /* Keeps it on top of other content */
+}
+
+/* Control overflow behavior: scrolling when content overflows */
+df-messenger .df-chat-container {
+  max-height: 100%; /* Prevent chat container from growing too tall */
+  overflow-y: auto; /* Add a scrollbar if the chat exceeds the window height */
+}
+
+/* Font imports */
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/fonts/open-sans-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src: url('/fonts/open-sans-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Merriweather';
+  src: url('/fonts/merriweather-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    /* Duke colors */
+    --duke-blue: #001A57;
+    --duke-blue-light: #0736A4;
+    --white: #FFFFFF;
+    --cream: #EBE8E1;
+    --duke-red: #C84E00;
+    --gray-light: #E5E7EB;
+    --gray: #6B7280;
+    --gray-dark: #374151;
+    --duke-gold: #AB9248;
+
+    --background: var(--white);
+    --foreground: var(--gray-dark);
+
+    --primary: var(--duke-blue);
+    --primary-foreground: var(--white);
+
+    --secondary: var(--cream);
+    --secondary-foreground: var(--gray-dark);
+
+    --accent: var(--duke-red);
+    --accent-foreground: var(--white);
+
+    --border: var(--gray-light);
+    --radius: 0.5rem;
+
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Merriweather', serif;
+  }
+}
+
+@layer components {
+  .container-fluid {
+    @apply w-full max-w-[1440px] mx-auto px-4 md:px-6;
+  }
+
+  .duke-header {
+    @apply bg-duke-blue text-white;
+  }
+
+  .duke-footer {
+    @apply bg-duke-blue text-white py-8;
+  }
+
+  .duke-btn {
+    @apply bg-duke-blue hover:bg-duke-blue-light text-white px-4 py-2 rounded transition-colors;
+  }
+
+  .duke-btn-accent {
+    @apply bg-duke-red hover:bg-[#c13f00] text-white px-4 py-2 rounded transition-colors;
+  }
+}
