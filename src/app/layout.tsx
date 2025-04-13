@@ -37,10 +37,9 @@ export default function RootLayout({
       <body>
         {/* Dialogflow Messenger */}
         <Script 
-        src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js">
-        strategy ="afterInteractive"
-        </Script>
-        
+  src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"
+  strategy="afterInteractive"
+        />
         <ClientBody>{children}</ClientBody>
       </body>
     </html>
